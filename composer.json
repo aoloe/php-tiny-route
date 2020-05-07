@@ -1,0 +1,25 @@
+{
+    "name": "aoloe/tiny-route",
+    "type": "library",
+    "description": "Set of three tiny classes for creating a tiny PHP app",
+    "keywords": [
+        "php",
+        "router"
+    ],
+    "homepage": "https://github.com/aoloe/php-tiny-route",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ale Rimoldi",
+            "email": "ale@ideale.ch",
+            "homepage": "http://ideale.ch",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "autoload": {
+        "classmap": ["src/TinyRoute.php"]
+    }
+}
