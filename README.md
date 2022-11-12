@@ -73,7 +73,7 @@ $request = Aoloe\TinyRoute\HttpRequest::create();
 $response = new Aoloe\TinyRoute\HttpResponse();
 
 $router->get('/(\w+)', function($name) use($response) {
-    $response->respond('<html><body><p>Hello '.$bame.'</body></html>');
+    $response->respond('<html><body><p>Hello '.$name.'</body></html>');
 });
 
 if (!$router->run($request)) {
