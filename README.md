@@ -65,19 +65,19 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include('vendor/autoload.php');
+include('../vendor/autoload.php');
 
 $router = new Aoloe\TinyRoute\Router();
 
-$request = Aoloe\TinyRest\HttpRequest::create();
-$response = new Aoloe\TinyRest\HttpResponse();
+$request = Aoloe\TinyRoute\HttpRequest::create();
+$response = new Aoloe\TinyRoute\HttpResponse();
 
 $router->get('/(\w+)', function($name) use($response) {
     $response->respond('<html><body><p>Hello '.$bame.'</body></html>');
 });
 
 if (!$router->run($request)) {
-    $respond->error_404();
+    $response->error_404();
 }
 ```
 
