@@ -102,6 +102,8 @@ class HttpRequestGet extends HttpRequestAbstract {
 class HttpRequestPost extends HttpRequestAbstract {
     public function __construct() {
         parent::__construct();
+        // first get _GET, if any (they can be overwritten)
+        $this->data = $_GET;
         // post variables sent by axios are json in the body
         if (empty($_POST)) {
             $body = file_get_contents('php://input');
@@ -109,11 +111,11 @@ class HttpRequestPost extends HttpRequestAbstract {
             if (!empty($body)) {
                 $data = json_decode($body, true);
                 if (!json_last_error()) {
-                    $this->data = $data;
+                    $this->data = array_merge($this->data, $data);
                 }
             }
         } else {
-            $this->data = $_POST;
+            $this->data = array_merge($this->data, $_POST);
         }
     }
 
